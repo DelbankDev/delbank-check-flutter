@@ -1,0 +1,12 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:label="my_flutter_app"
+        android:icon="@mipmap/ic_launcher"
+        tools:replace="android:label">
+        <!-- Outras configurações -->
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">sdkfraude</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Teste SDK</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+    </string>
+    <string name="please_type_the_verification_code_sent_to_n_9xxxxxxx19">Insira o código que enviamos para o seu telefone</string>
+    <string name="verification_code">(44) 9****-**78</string>
+    <string name="reenviar_code">Não recebeu o código? </string>
+    <string name="reenviar_button">Reenviar</string>
+    <string name="show_error">SHOW ERROR</string>
+    <string name="show_success">SHOW Success</string>
+
+</resources>
