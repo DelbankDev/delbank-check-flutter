@@ -3,6 +3,7 @@ package com.example.my_flutter_app
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Parcelable
 import android.util.Log
 import br.com.delbank.otpsdk.android.FastValidade
 import br.com.delbank.otpsdk.android.models.ErrorModel
@@ -76,19 +77,13 @@ class SdkDelbank : FlutterPlugin, MethodCallHandler, ActivityAware,
     @Synchronized
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
         if (requestCode == REQUEST_CODE && data != null) {
-//            Log.d("intent", requestCode.toString())
-//            Log.d("intent", (resultCode == Activity.RESULT_OK).toString())
-//            Log.d("intent", (resultCode).toString())
-//            Log.d("intent", (data != null).toString())
 
             if (resultCode == Activity.RESULT_OK && data != null) {
-                var authId : String? = data.getSerializableExtra("auth").toString()
-
-//                val resultModel: SucessModel? =
-//                    data.getSerializableExtra(FIELD_NAME_RESULT_SUCCESS_OBJECT) as SucessModel?
-                    if (authId != null) {
+                val resultModel: SucessModel? =
+                    data.getSerializableExtra(FIELD_NAME_RESULT_SUCCESS_OBJECT) as SucessModel?
+                    if (resultModel != null) {
                         val parameter: MutableMap<String, Any> = java.util.HashMap()
-                        parameter[FIELD_NAME_RESULT_SUCCESS_ID] = authId
+                        parameter[FIELD_NAME_RESULT_SUCCESS_ID] = resultModel.authorizationId
                         result?.success(parameter)
                     }
             } else {
@@ -105,9 +100,7 @@ class SdkDelbank : FlutterPlugin, MethodCallHandler, ActivityAware,
                     parameter[FIELD_NAME_RESULT_ERROR_CODE] = "-1"
                     parameter[FIELD_NAME_RESULT_ERROR_DESCRIPTION] = "Platform Error"
                     result?.error("-1", "Platform Error", parameter)
-
                 }
-
             }
         }
         return false
