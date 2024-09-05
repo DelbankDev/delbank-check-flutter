@@ -33,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String uuid = "";
+  String codeVerify = "";
   Map<dynamic, dynamic>? error;
 
   void _getAuth() async {
@@ -43,6 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
         onSuccess: (result) => {
               setState(() {
                 uuid = result[keyResultId];
+              }),
+              setState(() {
+                codeVerify = result[keyResultCode];
               }),
             },
         params: {});
@@ -71,6 +75,17 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               uuid,
+              style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'CODE AUTORIZAÇÃO',
+            ),
+            Text(
+              codeVerify,
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             ),

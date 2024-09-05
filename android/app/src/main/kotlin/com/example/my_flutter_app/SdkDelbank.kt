@@ -84,6 +84,7 @@ class SdkDelbank : FlutterPlugin, MethodCallHandler, ActivityAware,
                     if (resultModel != null) {
                         val parameter: MutableMap<String, Any> = java.util.HashMap()
                         parameter[FIELD_NAME_RESULT_SUCCESS_ID] = resultModel.authorizationId
+                        parameter[FIELD_NAME_RESULT_SUCCESS_CODE]= resultModel.code
                         result?.success(parameter)
                     }
             } else {
@@ -113,6 +114,7 @@ class SdkDelbank : FlutterPlugin, MethodCallHandler, ActivityAware,
         private  const val FIELD_NAME_RESULT_SUCCESS_OBJECT= "auth"
         private const val FIELD_NAME_RESULT_ERROR_OBJECT = "error"
         private const val FIELD_NAME_RESULT_SUCCESS_ID = "authorizationId"
+        private const val FIELD_NAME_RESULT_SUCCESS_CODE = "authorizationCode"
         private const val FIELD_NAME_RESULT_ID = "id"
         private const val FIELD_NAME_RESULT_ERROR_CODE = "code"
         private const val FIELD_NAME_RESULT_ERROR_DESCRIPTION = "description"

@@ -4,6 +4,7 @@ const channelName = "delbank.sdk/antiCheat";
 const eventStartCheck = "startCheck";
 
 const keyResultId = "authorizationId";
+const keyResultCode = "authorizationCode";
 const keyResultErrorCode = "code";
 const keyResultErrorDescription = "description";
 
