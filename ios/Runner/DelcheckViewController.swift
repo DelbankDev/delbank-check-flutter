@@ -55,14 +55,23 @@ class DelcheckViewController: UIViewController {
     
 }
 extension DelcheckViewController: DelcheckViewControllerDelegate {
-    func didReceiveSuccess(message: String) {
-        print("sucesso")
-        print(message)
+    func didReceiveSuccess(result: [String: Any]) {
+        let response : NSMutableDictionary! = [:]
+              response["authorizationId"] = result["authorizationId"]
+              response["authorizationCode"] = result["code"]
+              flutterResult(response)
+        DispatchQueue.main.async {
+            self.navigationController?.popToRootViewController(animated: false)
+        }
     }
     
-    func didReceiveError(error: Error) {
-        print("erro")
-        print(error.localizedDescription)
+    func didReceiveError(error: [String : Any]) {
+        let response : NSMutableDictionary! = [:]
+                response["code"] = error["codigo"]  as! Int
+                response["description"] = error["descricao"]  as! String
+                response["id"] = error["id"]  as! String
+                flutterResult(response)
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 
